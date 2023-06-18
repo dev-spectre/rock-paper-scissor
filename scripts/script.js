@@ -87,9 +87,14 @@ function game() {
         console.table(score);
     }
 
-    (score["player"] === 5)? 
-    console.log("YOU WON!!!"): 
-    console.log("YOU LOSE!!");
+    if (score["player"] === 5) {
+        console.log("%c YOU WON!!!",
+        "color: green; font-size: 25px;");
+
+    } else {
+        console.log("%c YOU LOSE!!",
+        "color: red; font-size: 25px;");
+    }
 }
 
 game()
