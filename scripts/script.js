@@ -96,5 +96,3 @@ function game() {
         "color: red; font-size: 25px;");
     }
 }
-
-game()

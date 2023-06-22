@@ -1,0 +1,87 @@
+body {
+    background-color: #343232;
+    margin: 0;
+    padding-inline: 1rem;
+    text-align: center;
+    font-family: 'Exo 2';
+    color: #719CF5;
+}
+
+h1, h2, section {
+    margin-block: 0.35em;
+    background: linear-gradient(#64AAFD 30%, #719CF5 60%, #9572DE 97%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+h1 {
+    font-size: clamp(1rem, 8vw, 6rem);
+}
+
+@supports (-webkit-background-clip: text) {
+    body {
+        color: transparent;
+    }
+}
+
+h2 {
+    font-size: clamp(1rem, 6vw, 3rem);
+    text-align: center;
+    line-break: inherit;
+    font-weight: 600;
+    display: inline-block;
+    white-space: normal;
+}
+
+@media (min-width: 500px) and (max-width: 850px) {
+    section {
+        display: block;
+        margin: auto;
+    }
+}
+
+button {
+    color: white;
+    background: linear-gradient(#64AAFD 30%, #719CF5 40%, #9572DE 87%);
+    font-family: 'Exo 2';
+    font-weight: 600;
+    font-size: clamp(1.5rem, 5vw, 2.875rem);
+    border: none;
+    border-radius: 0.2em;
+    padding: 0.3em 2em;
+    letter-spacing: 0.06em;
+    margin-block: 1em;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h3 {
+    font-size: clamp(0.5rem, 5vw, 2.2rem);
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    font-size: clamp(0.3rem, 4vw, 1.9rem);
+    margin-inline: auto;
+}
+
+ul span {
+    margin-inline: 0.4em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+main div {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
