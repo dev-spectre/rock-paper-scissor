@@ -7,7 +7,7 @@ body {
     color: #719CF5;
 }
 
-h1, h2, section {
+h1, h2 {
     margin-block: 0.35em;
     background: linear-gradient(#64AAFD 30%, #719CF5 60%, #9572DE 97%);
     -webkit-background-clip: text;
@@ -15,29 +15,35 @@ h1, h2, section {
 }
 
 h1 {
-    font-size: clamp(1rem, 8vw, 6rem);
-}
-
-@supports (-webkit-background-clip: text) {
-    body {
-        color: transparent;
-    }
+    font-size: clamp(1.6rem, 8vw, 6rem);
 }
 
 h2 {
     font-size: clamp(1rem, 6vw, 3rem);
     text-align: center;
-    line-break: inherit;
-    font-weight: 600;
-    display: inline-block;
-    white-space: normal;
 }
 
-@media (min-width: 500px) and (max-width: 850px) {
-    section {
-        display: block;
-        margin: auto;
+@supports (-webkit-background-clip: text) {
+    h1, h2 {
+        color: transparent;
     }
+}
+
+section {
+    background: rgba(79, 77, 77, 8.64);
+    font-size: clamp(0.3rem, 4vw, 1.9rem);
+    line-height: 2.8125rem;
+    max-width: 49.9375rem;
+    text-align: start;
+    border-radius: 19px;
+    box-shadow: 3px 5px 15px 3px rgba(0, 0, 0, 0.13);
+    padding: 1.75rem 3.37rem 1.81rem 3.31rem;
+    position: relative;
+}
+
+p {
+    margin: 0 0.35em;
+    display: inline;
 }
 
 button {
@@ -63,14 +69,10 @@ h3 {
 }
 
 ul {
-    padding: 0;
-    margin: 0;
-    font-size: clamp(0.3rem, 4vw, 1.9rem);
-    margin-inline: auto;
-}
-
-ul span {
-    margin-inline: 0.4em;
+    /* to keep text above the image */
+    position: relative;
+    margin-block: 0;
+    list-style-image: url("../assets/eva-arrow-up-fill.svg");
 }
 
 main {
@@ -83,5 +85,12 @@ main {
 main div {
     display: flex;
     flex-direction: column;
-    text-align: start;
+    align-items: center;
+}
+
+section img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
 }
