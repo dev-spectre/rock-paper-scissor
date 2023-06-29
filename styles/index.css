@@ -15,7 +15,7 @@ h1, h2 {
 }
 
 h1 {
-    font-size: clamp(1.6rem, 8vw, 6rem);
+    font-size: clamp(2.10406rem, 8vw, 6rem);
 }
 
 h2 {
@@ -32,17 +32,18 @@ h2 {
 section {
     background: rgba(79, 77, 77, 8.64);
     font-size: clamp(0.3rem, 4vw, 1.9rem);
-    line-height: 2.8125rem;
     max-width: 49.9375rem;
     text-align: start;
     border-radius: 19px;
     box-shadow: 3px 5px 15px 3px rgba(0, 0, 0, 0.13);
-    padding: 1.75rem 3.37rem 1.81rem 3.31rem;
     position: relative;
+    overflow: hidden;
+    margin-inline: auto;
+    line-height: 120%;
 }
 
 p {
-    margin: 0 0.35em;
+    margin: 1em 0.35em;
     display: inline;
 }
 
@@ -71,26 +72,51 @@ h3 {
 ul {
     /* to keep text above the image */
     position: relative;
-    margin-block: 0;
-    list-style-image: url("../assets/eva-arrow-up-fill.svg");
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-main div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-block: 0.5rem 0;
+    /* list-style-image: url("../assets/eva-arrow-up-fill.svg"); */
+    list-style: none;
 }
 
 section img {
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
+    height: 20rem;
+    right: -16rem;
+    top: 60%;
+}
+
+section div {
+    margin: 1rem;
+}
+
+li::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-image: url("../assets/eva-arrow-up-fill.svg");
+    background-repeat: no-repeat;
+    display: grid;
+    place-items: center;
+    display: inline-block;
+}
+
+@media screen and (min-width: 48.75rem) {
+    section img {
+        top: auto;
+        height: 28rem;
+        bottom: -4rem;
+        right: -15rem;
+    }
+    
+    section {
+        padding: 1.75rem 3.37rem 1.81rem 3.31rem;
+        line-height: 2.8125rem;
+    }
+    
+    p {
+        margin: 0 0.35em;
+    }
+
+    ul {
+        margin-block: 0;
+    }
 }
