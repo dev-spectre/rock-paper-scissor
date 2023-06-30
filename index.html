@@ -16,19 +16,19 @@
 </head>
 
 <body>
-    <header>
-        <h1>Rock Paper Scissors</h1>
-    </header>
-    <main>
-        <!-- <img id="tl" src="./assets/hexagons.svg"> -->
-        <a href="./game.html">
-            <button>PLAY</button>
-        </a>
-        <!-- <img id="tr" src="./assets/hexagons.svg"> -->
-        <div>
+    <div id="outer">
+
+        <main>
+            <header>
+                <h1>Rock Paper Scissors</h1>
+            </header>
+            <div>
+                <button>PLAY</button>
+            </div>
+
             <h2>Welcome to the Rock Paper Scissors Game!</h2>
             <section>
-                <img src="./assets/hexagon-black.svg">
+                <img src="./assets/hexagon-black.svg" alt="">
                 <div>
                     <p>The rules are simple:</p>
                     <ul>
@@ -39,12 +39,17 @@
                         <li>Click PLAY to start</li>
                     </ul>
                 </div>
-                </section>
-        </div>
-        <!-- <img id="bl" src="./assets/hexagons.svg"> -->
-        <!-- <img id="br" src="./assets/hexagons.svg"> -->
-    </main>
+            </section>
 
+
+            <img id="tl" src="./assets/hexagons.svg" alt="">
+            <img id="tr" src="./assets/hexagons.svg" alt="">
+            <img id="br" src="./assets/hexagons.svg" alt="">
+            <img id="bl" src="./assets/hexagons.svg" alt="">
+
+        </main>
+
+    </div>
     <script defer src="./scripts/script.js"></script>
 </body>
 

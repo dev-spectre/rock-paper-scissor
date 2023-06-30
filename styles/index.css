@@ -1,14 +1,13 @@
 body {
     background-color: #343232;
     margin: 0;
-    padding-inline: 1rem;
     text-align: center;
     font-family: 'Exo 2';
     color: #719CF5;
+    min-height: 100dvh;
 }
 
 h1, h2 {
-    margin-block: 0.35em;
     background: linear-gradient(#64AAFD 30%, #719CF5 60%, #9572DE 97%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -16,16 +15,18 @@ h1, h2 {
 
 h1 {
     font-size: clamp(2.10406rem, 8vw, 6rem);
+    margin-block: 1em 0.35em;
 }
 
 h2 {
+    margin-block: 0.35em 1em;
     font-size: clamp(1rem, 6vw, 3rem);
     text-align: center;
 }
 
-@supports (-webkit-background-clip: text) {
+@supports (-webkit-background-clip: text) and (background: linear-gradient(#64AAFD 30%, #719CF5 40%, #9572DE 87%)) {
     h1, h2 {
-        color: transparent;
+        color: #719df56c;
     }
 }
 
@@ -39,7 +40,8 @@ section {
     position: relative;
     overflow: hidden;
     margin-inline: auto;
-    line-height: 120%;
+    margin-bottom: 1rem;
+    z-index: 2;
 }
 
 p {
@@ -49,6 +51,7 @@ p {
 
 button {
     color: white;
+    background: -webkit-linear-gradient(center top , #9E9E9E, #454545);
     background: linear-gradient(#64AAFD 30%, #719CF5 40%, #9572DE 87%);
     font-family: 'Exo 2';
     font-weight: 600;
@@ -57,7 +60,8 @@ button {
     border-radius: 0.2em;
     padding: 0.3em 2em;
     letter-spacing: 0.06em;
-    margin-block: 1em;
+    margin-block: max(6vh, min(4vw, 76px)) max(5.25vh, min(2.25vw, 42.75px));
+
 }
 
 button:hover {
@@ -70,36 +74,79 @@ h3 {
 }
 
 ul {
-    /* to keep text above the image */
-    position: relative;
     margin-block: 0.5rem 0;
-    /* list-style-image: url("../assets/eva-arrow-up-fill.svg"); */
-    list-style: none;
+    list-style-image: url("../assets/eva-arrow-up-fill.svg");
+    padding-left: 1.5em;
 }
 
 section img {
-    position: absolute;
     height: 20rem;
+    width: auto;
     right: -16rem;
     top: 60%;
 }
 
 section div {
-    margin: 1rem;
+    margin: 1.5rem 1rem;
 }
 
-li::before {
-    content: "";
-    width: 50px;
-    height: 50px;
-    background-image: url("../assets/eva-arrow-up-fill.svg");
-    background-repeat: no-repeat;
-    display: grid;
-    place-items: center;
-    display: inline-block;
+li {
+    margin-block: 0.5em;
+}
+
+main {
+    position: relative;
+    padding: 0.1px 1rem;
+    max-width: 1920px;
+    margin-inline: auto;
+}
+
+div#outer {
+    overflow: hidden;
+    min-height: 100dvh;
+}
+
+:root {
+    --image-width: 35vw;
+}
+
+img {
+    /* visibility: hidden; */
+    z-index: -1;
+    position: absolute;
+    width: var(--image-width);
+}
+
+img#tr {
+    top: calc(0px + var(--image-width) * 0.9191 * -0.62);
+    right: calc(0px + var(--image-width) * -0.20);
+    transform: rotate(180deg);
+}
+
+img#tl {
+    top: 11vh;
+    left: calc(0px + var(--image-width) * 0.9191 * -0.60);
+    transform: rotate(-90deg);
+}
+
+img#br {
+    transform: rotate(90deg);
+    right: calc(0px + var(--image-width) * 0.9191 * -0.60);
+    bottom: -20vh;
+
+}
+
+img#bl {
+    transform: rotate(180deg);
+    bottom: -20vh;
+    left: -1rem;
 }
 
 @media screen and (min-width: 48.75rem) {
+    h1 {
+        margin-top: 0.35rem;
+    }
+
     section img {
         top: auto;
         height: 28rem;
@@ -109,7 +156,6 @@ li::before {
     
     section {
         padding: 1.75rem 3.37rem 1.81rem 3.31rem;
-        line-height: 2.8125rem;
     }
     
     p {
@@ -118,5 +164,38 @@ li::before {
 
     ul {
         margin-block: 0;
+        padding-left: 40px;
+    }
+
+    section div {
+        margin: 1rem;
+    }
+
+    img {
+        min-width: 20rem;
+        width: min(30vw, 532px);
+    }
+
+    img#bl {
+        bottom: -11rem;
+        left: -6rem;
+        display: inline;
+        transform: rotate(180deg);
+    }
+    
+    img#br {
+        bottom: -11rem;
+        right: -6rem;
+    }
+    
+    img#tr {
+        transform: rotate(180deg);
+        top: 4rem;
+        right: -6rem;
+    }
+    
+    img#tl {
+        top: 4rem;
+        left: -6rem;
     }
 }
