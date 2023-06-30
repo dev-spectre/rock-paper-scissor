@@ -4,7 +4,6 @@ body {
     text-align: center;
     font-family: 'Exo 2';
     color: #719CF5;
-    min-height: 100dvh;
 }
 
 h1, h2 {
@@ -24,7 +23,7 @@ h2 {
     text-align: center;
 }
 
-@supports (-webkit-background-clip: text) and (background: linear-gradient(#64AAFD 30%, #719CF5 40%, #9572DE 87%)) {
+@supports (-webkit-background-clip: text) {
     h1, h2 {
         color: #719df56c;
     }
@@ -51,7 +50,6 @@ p {
 
 button {
     color: white;
-    background: -webkit-linear-gradient(center top , #9E9E9E, #454545);
     background: linear-gradient(#64AAFD 30%, #719CF5 40%, #9572DE 87%);
     font-family: 'Exo 2';
     font-weight: 600;
@@ -61,7 +59,6 @@ button {
     padding: 0.3em 2em;
     letter-spacing: 0.06em;
     margin-block: max(6vh, min(4vw, 76px)) max(5.25vh, min(2.25vw, 42.75px));
-
 }
 
 button:hover {
@@ -111,35 +108,35 @@ div#outer {
 }
 
 img {
-    /* visibility: hidden; */
     z-index: -1;
     position: absolute;
     width: var(--image-width);
 }
 
-img#tr {
-    top: calc(0px + var(--image-width) * 0.9191 * -0.62);
-    right: calc(0px + var(--image-width) * -0.20);
-    transform: rotate(180deg);
-}
-
-img#tl {
-    top: 11vh;
-    left: calc(0px + var(--image-width) * 0.9191 * -0.60);
-    transform: rotate(-90deg);
-}
-
-img#br {
-    transform: rotate(90deg);
-    right: calc(0px + var(--image-width) * 0.9191 * -0.60);
-    bottom: -20vh;
-
-}
-
-img#bl {
-    transform: rotate(180deg);
-    bottom: -20vh;
-    left: -1rem;
+@media screen and (max-width: 48.749999rem) {  
+    img#tr {
+        top: calc(0px + var(--image-width) * 0.9191 * -0.62);
+        right: calc(0px + var(--image-width) * -0.20);
+        transform: rotate(180deg);
+    }
+    
+    img#tl {
+        top: 11vh;
+        left: calc(0px + var(--image-width) * 0.9191 * -0.60);
+        transform: rotate(-90deg);
+    }
+    
+    img#br {
+        transform: rotate(90deg);
+        right: calc(0px + var(--image-width) * 0.9191 * -0.60);
+        bottom: -20vh;
+    }
+    
+    img#bl {
+        transform: rotate(180deg);
+        bottom: -20vh;
+        left: -1rem;
+    }
 }
 
 @media screen and (min-width: 48.75rem) {
@@ -179,7 +176,6 @@ img#bl {
     img#bl {
         bottom: -11rem;
         left: -6rem;
-        display: inline;
         transform: rotate(180deg);
     }
     
