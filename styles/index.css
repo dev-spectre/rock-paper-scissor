@@ -48,7 +48,9 @@ p {
     display: inline;
 }
 
-button {
+a {
+    display: inline-block;
+    text-decoration: none;
     color: white;
     background: linear-gradient(#64AAFD 30%, #719CF5 40%, #9572DE 87%);
     font-family: 'Exo 2';
@@ -59,10 +61,6 @@ button {
     padding: 0.3em 2em;
     letter-spacing: 0.06em;
     margin-block: max(6vh, min(4vw, 76px)) max(5.25vh, min(2.25vw, 42.75px));
-}
-
-button:hover {
-    cursor: pointer;
 }
 
 h3 {
