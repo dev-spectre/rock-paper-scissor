@@ -1,0 +1,159 @@
+:root {
+    --linear-gradient: linear-gradient(#64AAFD 10%, #719CF5 20%, #9572DE 70%, #a366c9);
+    --bg-body: #343232;
+    --inner-hex-width: clamp(8.1175rem, calc(27vw - 10px), calc(26.126rem - 10px));
+}
+
+body {
+    background-color: var(--bg-body);
+    color: #719CF5;
+    font-family: 'Exo 2';
+}
+
+@supports (-webkit-background-clip: text) 
+or (background-clip: text)
+or (-moz-background-clip: text) {
+    .gradient {
+        background: var(--linear-gradient);
+        color: #719df586;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+    }
+}
+
+a svg {
+    width: clamp(40px, 10vw, 57px);
+}
+
+#top {
+    text-align: center;
+}
+
+.match-result > div {
+    color: white;
+    background: var(--bg-body);
+    font-size: clamp(1rem, 5vw, 2.25rem);
+    display: inline-block;
+    padding: 0.15em;
+    border-radius: 0.35ch;
+}
+
+.match-result {
+    margin-top: 5rem;
+    flex: 0 0 auto;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+    gap: 1.5rem;
+}
+
+.gradient-border {
+    background: var(--linear-gradient) no-repeat;
+    display: inline-block;
+    padding: 0.25em;
+    border-radius: 0.9ch;
+    height: fit-content;
+}
+
+a {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+a svg {
+    visibility: visible;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.result-hexagon {
+    position: relative;
+}
+
+
+.inner-hex {
+    width: var(--inner-hex-width);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: calc(-0.5 * var(--inner-hex-width));
+    /* to convert image width to height */
+    margin-top: calc(-0.5 * var(--inner-hex-width) * 0.83064404);
+
+}
+
+.outer-hex {
+    width: clamp(9.5625rem, 30vw, 28.75rem);
+}
+
+.flex .match-result {
+    display: none;
+    margin-top: 0;
+}
+
+.outer-hex.hidden {
+    visibility: hidden;
+}
+
+#player-hex span.gradient,
+#computer-hex span.gradient {
+    display: none;
+}
+
+@media (min-width: 1185px) {
+    div.match-result[data-top="true"] {
+        display: none;
+    }
+    
+    .flex .match-result {
+        display: inline-block;
+    }
+    
+    #player-hex span.gradient,
+    #computer-hex span.gradient {
+        font-size: 3rem;
+        display: inline;
+    }
+    
+}
+
+#bottom {
+    max-width: 80rem;
+    margin-inline: auto;
+}
+
+#bottom > div.flex {
+    justify-content: space-between;
+    margin-block: 0;
+}
+
+#scores span.gradient {
+    display: block;
+}
+
+#scores {
+    font-size: clamp(1.56594rem, 5vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#scores .gradient-border div {
+    background: var(--bg-body);
+    width: 5em;
+    height: 1.5em;
+    border-radius: 0.3rem;
+}
+
+#scores .gradient-border {
+    border-radius: 0.5rem;
+    padding: 0.1em;
+}
