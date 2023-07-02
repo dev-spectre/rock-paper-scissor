@@ -4,6 +4,15 @@
     --inner-hex-width: clamp(8.1175rem, 27vw - 10px, 26.126rem - 10px);
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 body {
     background-color: var(--bg-body);
     color: #719CF5;
@@ -27,12 +36,6 @@ a {
     position: absolute;
     top: 0;
     left: 0;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 a:focus {
@@ -72,21 +75,68 @@ div#home:active {
 }
 
 .match-result > div {
+    --match-result-inner-width: 10ch;
     color: white;
     background: var(--bg-body);
-    font-size: clamp(1rem, 5vw, 2.25rem);
     display: inline-block;
     padding: 0.15em;
-    border-radius: 0.35ch;
+    border-radius: 0.25ch;
+    width: var(--match-result-inner-width);
+    height: 2ch;
 }
 
-.match-result {
+.match-result svg {
+    display: none;
+}
+
+div.match-result {
+    font-size: clamp(1rem, 4vw, 2.25rem);
+    width: 10.5ch;
     margin-top: 5rem;
     flex: 0 0 auto;
+    border-radius: 0.4ch;
+    padding: 0.15em;
+    position: relative;
 }
 
-.match-result[data-match-result="won"] > div {
+.match-result[data-match-result="won"] > div,
+.match-result[data-match-result="lost"] > div {
     background-color: transparent;
+}
+
+.match-result[data-match-result="won"] .sparkle {
+    --sparkle-width: 2.5ch;
+    display: inline;
+    position: absolute;
+    width: var(--sparkle-width);
+    height: var(--sparkle-width);
+}
+
+.match-result[data-match-result="won"] svg.sparkle-top {
+    top: 0;
+    right: 0;
+    margin-top: calc(var(--sparkle-width) * -0.35);
+    margin-right: calc(var(--sparkle-width) * -0.35);
+}
+
+.match-result[data-match-result="won"] svg.sparkle-bottom {
+    bottom: 0;
+    left: 0;
+    margin-bottom: calc(var(--sparkle-width) * -0.35);
+    margin-left: calc(var(--sparkle-width) * -0.35);
+}
+
+.match-result[data-match-result="lost"] .drop {
+    --drop-width: 2ch;
+    --drop-height: calc(2ch * 0.75);
+    width: var(--drop-width);
+    height: var(--drop-height);
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: calc(var(--drop-width) * -0.3);
+    margin-left: calc(var(--drop-height) * -0.35);
 }
 
 .flex {
@@ -163,12 +213,28 @@ div#home:active {
     text-align: center;
 }
 
-#options img.hex {
+#options svg.hex {
+    --svg-width: clamp(5.49rem, 16vw, 14.53181rem);
     width: clamp(5.49rem, 16vw, 14.53181rem);
+    height: calc(var(--svg-width) * 0.83064404);
 }
 
-#options img:hover {
+#options div[id]:hover {
     cursor: pointer;
+}
+
+@media (hover: hover) {
+    #options div[id]:hover .hex {
+        fill: rgba(255, 255, 255, 0.4);
+    }
+}
+
+#options div[id]:active .hex {
+    fill: rgba(255, 255, 255, 0.5);
+}
+
+#options div[id]:active .wrap img {
+    transform: scale(90%);
 }
 
 #options > div > div {
@@ -207,7 +273,6 @@ div#home:active {
 
 #bottom > div.flex {
     margin-block: 0;
-    flex-wrap: wrap;
 }
 
 #scores span.gradient {
@@ -237,16 +302,15 @@ div#home:active {
 #scores .gradient-border > div {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2%;
+    gap: 2.5%;
+    padding: 0.1em;
 }
 
 #scores div.point {
-    border-radius: 0.15em;
+    border-radius: 0.1em;
     background: var(--linear-gradient);
-    width: 17.7%;
-    height: 85%;
-
+    width: 18%;
+    height: 98%;
 }
 
 .hidden {
@@ -255,6 +319,10 @@ div#home:active {
 
 
 @media (max-width: 62.5rem) and (min-width: 43.75rem) {
+    #bottom.flex {
+        flex-wrap: wrap;
+    }
+
     #scores {
         flex-wrap: nowrap;
     }
@@ -264,5 +332,9 @@ div#home:active {
 @media (max-width: 43.7499rem) {
     #scores {
         text-align: center;
+    }
+
+    #bottom.flex {
+        flex-wrap: wrap;
     }
 }
