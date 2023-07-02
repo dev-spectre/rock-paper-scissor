@@ -1,7 +1,7 @@
 :root {
     --linear-gradient: linear-gradient(#64AAFD 10%, #719CF5 20%, #9572DE 70%, #a366c9);
     --bg-body: #343232;
-    --inner-hex-width: clamp(8.1175rem, calc(27vw - 10px), calc(26.126rem - 10px));
+    --inner-hex-width: clamp(8.1175rem, 27vw - 10px, 26.126rem - 10px);
 }
 
 body {
@@ -76,22 +76,27 @@ a svg {
 
 .result-hexagon {
     position: relative;
+    width: clamp(9.5625rem, 30vw, 28.75rem);
+    height: calc(clamp(9.5625rem, 30vw, 28.75rem) * 0.83064404);
 }
 
+.inner-hex-wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+}
 
 .inner-hex {
     width: var(--inner-hex-width);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: calc(-0.5 * var(--inner-hex-width));
-    /* to convert image width to height */
-    margin-top: calc(-0.5 * var(--inner-hex-width) * 0.83064404);
-
 }
 
 .outer-hex {
-    width: clamp(9.5625rem, 30vw, 28.75rem);
+    width: 100%;
+    height: 100%;
 }
 
 .flex .match-result {
