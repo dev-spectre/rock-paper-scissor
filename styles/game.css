@@ -71,10 +71,6 @@ div#home:active {
     text-align: center;
 }
 
-#top div.flex {
-    flex-wrap: wrap;
-}
-
 .match-result > div {
     color: white;
     background: var(--bg-body);
