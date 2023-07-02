@@ -214,8 +214,8 @@ div.match-result {
 }
 
 #options svg.hex {
-    --svg-width: clamp(5.49rem, 16vw, 14.53181rem);
-    width: clamp(5.49rem, 16vw, 14.53181rem);
+    --svg-width: clamp(5.49rem, 18vw, 14.53181rem);
+    width: var(--svg-width);
     height: calc(var(--svg-width) * 0.83064404);
 }
 
@@ -318,7 +318,7 @@ div.match-result {
 }
 
 
-@media (max-width: 62.5rem) and (min-width: 43.75rem) {
+@media (max-width: 62.5rem) and (min-width: 35.75rem) {
     #bottom.flex {
         flex-wrap: wrap;
     }
@@ -329,7 +329,7 @@ div.match-result {
     
 }
 
-@media (max-width: 43.7499rem) {
+@media (max-width: 35.7499rem) {
     #scores {
         text-align: center;
     }
