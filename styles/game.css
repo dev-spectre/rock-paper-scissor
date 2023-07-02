@@ -309,6 +309,7 @@ div.match-result {
 #scores div.point {
     border-radius: 0.1em;
     background: var(--linear-gradient);
+    background-color: #719df586;
     width: 18%;
     height: 98%;
 }
