@@ -1,7 +1,7 @@
 :root {
     --linear-gradient: linear-gradient(#64AAFD 10%, #719CF5 20%, #9572DE 70%, #a366c9);
     --bg-body: #343232;
-    --inner-hex-width: clamp(8.1175rem, 27vw - 10px, 26.126rem - 10px);
+    --inner-hex-width: clamp(7.8175rem, 27vw - 10px, 26.126rem - 10px);
 }
 
 * {
@@ -152,7 +152,7 @@ div.match-result {
 
 .result-hexagon {
     position: relative;
-    width: clamp(9.5625rem, 30vw, 28.75rem);
+    width: clamp(9.0625rem, 30vw, 28.75rem);
     height: calc(clamp(9.5625rem, 30vw, 28.75rem) * 0.83064404);
 }
 
@@ -316,6 +316,36 @@ div.match-result {
     visibility: hidden;
 }
 
+.inner-hex + img {
+    position: absolute;
+    margin-top: -3%;
+    transition: transform 100ms ease-in;
+}
+
+.inner-hex + img.scale-zero {
+    transform: scale(0);
+}
+
+.inner-hex + img[src="./assets/rock.svg"] {
+    width: 5%;
+    transform: scale(11);
+}
+
+.inner-hex + img[src="./assets/paper.svg"] {
+    width: 5%;
+    margin-left: 6%;
+    margin-top: 0;
+    transform: scale(11);
+}
+
+.inner-hex + img[src="./assets/scissor.svg"] {
+    width: 10%;
+    transform: scale(6);
+}
+
+.scale-zero {
+    transform: scale(0) !important;
+}
 
 @media (max-width: 62.5rem) and (min-width: 35.75rem) {
     #bottom.flex {
